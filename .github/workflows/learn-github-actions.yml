@@ -14,7 +14,8 @@ jobs:
           uses: actions/checkout@v4
 
       - name: Setup do Node.js para Netlify CLI
-          uses: actions/setup-node@v4            with: 
+          uses: actions/setup-node@v4
+          with: 
             node-version: '18'
 
       - name: Instala o Netlify CLI
