@@ -10,8 +10,8 @@ jobs:
         with:
           node-version: '20'
       - name: Instala o Netlify CLI
-          run: npm install -g netlify
-      -name: Atualiza site na Netlify
+          run: npm install -g netlify-cli
+      - name: Atualiza site na Netlify
           env:  NETLIFY_AUTH_TOKEN: $｛｛ secrets.NETLIFY_AUTH_TOKEN ｝｝
                 NETLIFY_SITE_ID: $｛｛ secrets.NETLIFY_SITE_ID ｝｝
           run: netlify deploy --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN --dir="." --prod 
