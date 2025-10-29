@@ -6,22 +6,15 @@ on:
 
   jobs:
     deploy:
-      name: Deploy do Site no Netlify
-      runs-on: ubunto-latest
+      Deploy do Site no Netlify:
+        runs-on: ubunto-latest
 
-    steps:
-      - name: Checkout do repositorio
-      uses: actions/checkout@v4
-
-      - name: Setup do Node.js para Netlify CLI
-      uses: actions/setup-node@v4
-      with: 
-        node-version: '18'
-
-        - name: Instala o Netlify CLI
-        run: npm install -g netlify-cli
-
-        - name: Atualiza site na Netlify
-          env: NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          run: netlify deploy --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN --dir="." --prod
+        steps:
+          - uses: actions/checkout@v4
+          - uses: actions/setup-node@v4
+            with: 
+              node-version: '18'
+          - run: npm install -g netlify-cli
+          - env: NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+            NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          - run: netlify deploy --site=$NETLIFY_SITE_ID --auth=$NETLIFY_AUTH_TOKEN --dir="." --prod
