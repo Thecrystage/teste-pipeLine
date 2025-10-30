@@ -7,7 +7,7 @@ on:
 
   jobs:
     deploy:
-      Deploy do Site no Netlify:
+        Deploy do Site no Netlify:
         runs-on: ubunto-latest
 
         steps:
